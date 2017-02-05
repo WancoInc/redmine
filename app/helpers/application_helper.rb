@@ -495,9 +495,7 @@ module ApplicationHelper
   end
 
   def page_header_title
-    if @project.nil? || @project.new_record?
-      h(Setting.app_title)
-    else
+    if !@project.nil? && !@project.new_record?
       b = []
       ancestors = (@project.root? ? [] : @project.ancestors.visible.to_a)
       if ancestors.any?
@@ -515,7 +513,9 @@ module ApplicationHelper
         path = safe_join(b[0..-2], separator) + separator
         b = [content_tag(:span, path.html_safe, class: 'breadcrumbs'), b[-1]]
       end
+      b.unshift(" - ")
       safe_join b
+
     end
   end
 

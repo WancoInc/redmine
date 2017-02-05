@@ -93,6 +93,7 @@ class UsersController < ApplicationController
     @user.login = params[:user][:login]
     @user.password, @user.password_confirmation = params[:user][:password], params[:user][:password_confirmation] unless @user.auth_source_id
     @user.pref.attributes = params[:pref] if params[:pref]
+    @user.pref[:my_page_layout] = {'top' => ['issuesassignedtome', 'calendar', 'issuesreportedbyme']}
 
     if @user.save
       Mailer.account_information(@user, @user.password).deliver if params[:send_information]
