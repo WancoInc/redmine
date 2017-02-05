@@ -924,11 +924,16 @@ tr.odd.priority-lowest td, tr.even.priority-lowest td { border-color: #D2EAFA; }
 /**********************************************************/
 /* OBJECTS */
 /**********************************************************/
-div.issue,
 div.person,
 div.contact,
 div.deal {
   border: 0px !important;
+  padding: 10px !important;
+}
+
+div.issue {
+	background-color: rgba(154, 168, 250, 0.10);
+	border-color: rgba(154, 168, 250, 0.5);
   padding: 10px !important;
 }
 

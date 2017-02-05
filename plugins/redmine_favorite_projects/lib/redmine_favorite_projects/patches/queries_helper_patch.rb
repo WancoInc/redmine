@@ -21,7 +21,7 @@ module RedmineFavoriteProjects
           elsif column.name == :name && list_object.is_a?(Project)
             content_tag(:span, link_to_project(list_object, {:action => 'show'}, :title => list_object.short_description))
           elsif column.name == :description && list_object.is_a?(Project)
-            content_tag(:span, list_object.short_description)
+            content_tag(:span, textilizable(list_object.short_description))
           elsif column.name == :created_on && list_object.is_a?(Project)
             format_date(list_object.created_on)
           elsif column.name == :status && list_object.is_a?(Project)
